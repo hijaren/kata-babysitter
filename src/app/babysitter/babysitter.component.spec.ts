@@ -69,12 +69,22 @@ describe('BabysitterComponent', () => {
   });
 
   it('should get the payment value based on start and end time', () => {
-    const rate = 15;
-    const startTime = '5PM';
-    const endTime = '11PM';
+    let rate = 0;
+    let startTime = '';
+    let endTime = '';
 
+    rate = 15;
+    startTime = '5PM';
+    endTime = '11PM';
     expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
       90
+    );
+
+    rate = 20;
+    startTime = '11PM';
+    endTime = '4AM';
+    expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
+      100
     );
   });
 });

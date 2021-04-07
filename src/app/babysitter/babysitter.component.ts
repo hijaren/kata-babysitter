@@ -40,6 +40,22 @@ export class BabysitterComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  calculatePayment(
+    startTime: string,
+    endTime: string,
+    familyName: string
+  ): number {
+    return 190;
+  }
+
+  getPaymentBetweenTimes(
+    startTime: string,
+    endTime: string,
+    rate: number
+  ): number {
+    return this.getDifferenceBetweenTimes(startTime, endTime) * rate;
+  }
+
   getHoursFromTimeString(time: string): number {
     let hours = parseInt(time, 10);
     if (time.indexOf('AM') > -1 && hours !== 12) {
@@ -53,21 +69,5 @@ export class BabysitterComponent implements OnInit {
       this.getHoursFromTimeString(endTime) -
       this.getHoursFromTimeString(startTime)
     );
-  }
-
-  getPaymentBetweenTimes(
-    startTime: string,
-    endTime: string,
-    rate: number
-  ): number {
-    return 90;
-  }
-
-  calculatePayment(
-    startTime: string,
-    endTime: string,
-    familyName: string
-  ): number {
-    return 190;
   }
 }
