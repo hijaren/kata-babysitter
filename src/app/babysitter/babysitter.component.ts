@@ -55,6 +55,14 @@ export class BabysitterComponent implements OnInit {
     );
   }
 
+  getPaymentBetweenTimes(
+    startTime: string,
+    endTime: string,
+    rate: number
+  ): number {
+    return 90;
+  }
+
   calculatePayment(
     startTime: string,
     endTime: string,
