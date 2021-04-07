@@ -38,7 +38,9 @@ export class BabysitterComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.calculatePayment('12AM', '4AM', 'Family B');
+  }
 
   calculatePayment(
     startTime: string,
@@ -63,6 +65,9 @@ export class BabysitterComponent implements OnInit {
         endTime,
         familyConfig.hourlyRateAfterBedTime
       );
+      console.log('before', paymentBeforeBedTime);
+      console.log('special', specialRatePayment);
+      console.log('after', paymentAfterBedTime);
       payment = paymentBeforeBedTime + specialRatePayment + paymentAfterBedTime;
     } else {
       const paymentBeforeBedTime = this.getPaymentBetweenTimes(
