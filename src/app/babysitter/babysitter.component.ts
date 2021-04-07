@@ -11,11 +11,18 @@ export class BabysitterComponent implements OnInit {
   ngOnInit(): void {}
 
   getHoursFromTimeString(time: string): number {
-    return 5;
+    let hours = parseInt(time, 10);
+    if (time.indexOf('AM') > -1 && hours !== 12) {
+      hours += 12;
+    }
+    return hours;
   }
 
   getDifferenceBetweenTimes(startTime: string, endTime: string): number {
-    return 11;
+    return (
+      this.getHoursFromTimeString(endTime) -
+      this.getHoursFromTimeString(startTime)
+    );
   }
 
   calculatePayment(
