@@ -45,7 +45,22 @@ export class BabysitterComponent implements OnInit {
     endTime: string,
     familyName: string
   ): number {
-    return 190;
+    const familyConfig = this.getFamilyConfigByName(familyName);
+    const paymentBeforeBedTime = this.getPaymentBetweenTimes(
+      startTime,
+      familyConfig.bedTime,
+      familyConfig.hourlyRateBeforeBedTime
+    );
+    const paymentAfterBedTime = this.getPaymentBetweenTimes(
+      familyConfig.bedTime,
+      endTime,
+      familyConfig.hourlyRateAfterBedTime
+    );
+    return paymentBeforeBedTime + paymentAfterBedTime;
+  }
+
+  getFamilyConfigByName(familyName: string): FamilyEmployer {
+    return this.FAMILY_CONFIG.filter((family) => family.name === familyName)[0];
   }
 
   getPaymentBetweenTimes(
