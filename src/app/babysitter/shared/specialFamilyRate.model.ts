@@ -1,5 +1,5 @@
 export interface SpecialFamilyRate {
-  startTime: number;
-  endTime: number;
+  startTime: string;
+  endTime: string;
   rate: number;
 }
