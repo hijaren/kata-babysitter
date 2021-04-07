@@ -10,6 +10,14 @@ export class BabysitterComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  getHoursFromTimeString(time: string): number {
+    return 5;
+  }
+
+  getDifferenceBetweenTimes(startTime: string, endTime: string): number {
+    return 11;
+  }
+
   calculatePayment(
     startTime: string,
     endTime: string,

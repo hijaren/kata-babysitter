@@ -33,4 +33,15 @@ describe('BabysitterComponent', () => {
     };
     expect(component.calculatePayment('5PM', '4AM', 'Family A')).toEqual(190);
   });
+
+  it('should calculate the difference between a start and an end time', () => {
+    const startTime = '5PM';
+    const endTime = '4AM';
+    expect(component.getDifferenceBetweenTimes(startTime, endTime)).toEqual(11);
+  });
+
+  it('should convert a time string to a number value', () => {
+    const time = '5PM';
+    expect(component.getHoursFromTimeString(time)).toEqual(5);
+  });
 });
