@@ -24,7 +24,15 @@ describe('BabysitterComponent', () => {
   });
 
   it('should calculate the correct payment for one full night for a family without a SpecialFamilyRate', () => {
-    const family: FamilyEmployer = {
+    let family: FamilyEmployer = {
+      id: 0,
+      name: '',
+      bedTime: '',
+      hourlyRateBeforeBedTime: 0,
+      hourlyRateAfterBedTime: 0,
+    };
+
+    family = {
       id: 1,
       name: 'Family A',
       bedTime: '11PM',
@@ -32,6 +40,31 @@ describe('BabysitterComponent', () => {
       hourlyRateAfterBedTime: 20,
     };
     expect(component.calculatePayment('5PM', '4AM', 'Family A')).toEqual(190);
+
+    family = {
+      id: 3,
+      name: 'Family C',
+      bedTime: '9PM',
+      hourlyRateBeforeBedTime: 21,
+      hourlyRateAfterBedTime: 15,
+    };
+    expect(component.calculatePayment('5PM', '4AM', 'Family C')).toEqual(189);
+  });
+
+  it('should calculate the correct payment for one full night for a family with a SpecialFamilyRate', () => {
+    const family: FamilyEmployer = {
+      id: 2,
+      name: 'Family B',
+      bedTime: '10PM',
+      hourlyRateBeforeBedTime: 12,
+      hourlyRateAfterBedTime: 16,
+      specialRate: {
+        startTime: '10PM',
+        endTime: '12AM',
+        rate: 8,
+      },
+    };
+    expect(component.calculatePayment('5PM', '4AM', 'Family B')).toEqual(140);
   });
 
   it('should calculate the difference between a start and an end time', () => {
@@ -85,6 +118,13 @@ describe('BabysitterComponent', () => {
     endTime = '4AM';
     expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
       100
+    );
+
+    rate = 8;
+    startTime = '10PM';
+    endTime = '12AM';
+    expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
+      16
     );
   });
 });
