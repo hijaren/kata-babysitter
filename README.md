@@ -8,6 +8,7 @@ This is a Kata to demonstrate my understanding of clean code & software craftsma
 
 ## Setup
 
+To run application locally:
 1. Install NPM package manager (https://www.npmjs.com/get-npm)
 2. Run `npm install -g @angular/cli` to install Angular CLI
 3. Clone repository
