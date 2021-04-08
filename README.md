@@ -1,27 +1,35 @@
 # KataBabysitter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+This is a Kata to demonstrate understanding of clean code & software craftsmanship. Created using Angular w/ Typescript.
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install NPM package manager
+2. Clone repository
+3. Run `npm install` to install dependencies
+4. Run `npm serve` to run development server
+5. Run `npm test` to execute unit tests
 
-## Code scaffolding
+## Requirements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+_As a babysitter
+In order to get paid for 1 night of work
+I want to calculate my nightly charge_
 
-## Build
+The babysitter:
+- starts no earlier than 5:00PM
+- leaves no later than 4:00AM
+- only babysits for one family per night
+- gets paid for full hours (no fractional hours)
+- should be prevented from mistakes when entering times (e.g. end time before start time, or outside of allowable work hours)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The job:
+- Pays different rates for each family (based on bedtimes, kids and pets, etc...)
+- Family A pays $15 per hour before 11pm, and $20 per hour the rest of the night
+- Family B pays $12 per hour before 10pm, $8 between 10 and 12, and $16 the rest of the night
+- Family C pays $21 per hour before 9pm, then $15 the rest of the night
+- The time ranges are the same as the babysitter (5pm through 4am)
 
-## Running unit tests
+Deliverable:
+- Calculate total pay, based on babysitter start and end time, and a family.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
