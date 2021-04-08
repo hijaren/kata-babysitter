@@ -119,6 +119,9 @@ describe('BabysitterComponent', () => {
     expect(component.calculatePayment('12AM', '4AM', 'Family 2')).toEqual(64);
   });
 
+  // it('should not add payments beyond the valid time range')
+  // TODO: I hesitate to implement this to achieve 100% code coverage because this should not occur with UI validation
+
   it('should calculate the difference between a start and an end time', () => {
     let startTime = '';
     let endTime = '';

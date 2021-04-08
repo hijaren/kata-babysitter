@@ -84,6 +84,8 @@ export class BabysitterComponent implements OnInit {
         payment += familyConfig.specialRate.rate;
       } else if (hour >= this.getHoursFromTimeString(familyConfig.bedTime)) {
         payment += familyConfig.hourlyRateAfterBedTime;
+      } else {
+        return;
       }
     });
     return payment;
