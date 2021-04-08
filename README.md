@@ -1,6 +1,6 @@
 # KataBabysitter
 
-This is a Kata to demonstrate my understanding of clean code & software craftsmanship. Created using Angular w/ Typescript.
+This is a Kata to demonstrate my understanding of Test Driven Development (TDD), clean code, & software craftsmanship. Created using Angular w/ Typescript.
 
 ## Screenshots
 - UI: https://github.com/hijaren/kata-babysitter/blob/master/basic%20ui.png
