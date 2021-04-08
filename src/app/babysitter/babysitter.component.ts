@@ -36,6 +36,23 @@ export class BabysitterComponent implements OnInit {
     },
   ];
 
+  TIMES_OPTIONS = [
+    '5PM',
+    '6PM',
+    '7PM',
+    '8PM',
+    '9PM',
+    '10PM',
+    '11PM',
+    '12AM',
+    '1AM',
+    '2AM',
+    '3AM',
+    '4AM',
+  ];
+
+  FAMILY_OPTIONS = ['Family A', 'Family B', 'Family C'];
+
   constructor() {}
 
   ngOnInit(): void {}
