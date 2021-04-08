@@ -46,44 +46,29 @@ export class BabysitterComponent implements OnInit {
     familyName: string
   ): number {
     const familyConfig = this.getFamilyConfigByName(familyName);
+    const hoursWorked: Array<number> = [];
     let payment = 0;
-    if (familyConfig.hasOwnProperty('specialRate')) {
-      const hoursWorked: Array<number> = [];
-      for (
-        let i = 0;
-        i < this.getDifferenceBetweenTimes(startTime, endTime);
-        i++
-      ) {
-        hoursWorked.push(this.getHoursFromTimeString(startTime) + i);
-      }
-      hoursWorked.forEach((hour) => {
-        if (hour < this.getHoursFromTimeString(familyConfig.bedTime)) {
-          payment += familyConfig.hourlyRateBeforeBedTime;
-        } else if (
-          familyConfig.specialRate &&
-          hour >=
-            this.getHoursFromTimeString(familyConfig.specialRate.startTime) &&
-          hour < this.getHoursFromTimeString(familyConfig.specialRate.endTime)
-        ) {
-          payment += familyConfig.specialRate.rate;
-        } else if (hour > this.getHoursFromTimeString(familyConfig.bedTime)) {
-          payment += familyConfig.hourlyRateAfterBedTime;
-        }
-      });
-    } else {
-      const paymentBeforeBedTime = this.getPaymentBetweenTimes(
-        startTime,
-        familyConfig.bedTime,
-        familyConfig.hourlyRateBeforeBedTime
-      );
-      const paymentAfterBedTime = this.getPaymentBetweenTimes(
-        familyConfig.bedTime,
-        endTime,
-        familyConfig.hourlyRateAfterBedTime
-      );
-      payment = paymentBeforeBedTime + paymentAfterBedTime;
+    for (
+      let i = 0;
+      i < this.getDifferenceBetweenTimes(startTime, endTime);
+      i++
+    ) {
+      hoursWorked.push(this.getHoursFromTimeString(startTime) + i);
     }
-    console.log('payment', payment);
+    hoursWorked.forEach((hour) => {
+      if (hour < this.getHoursFromTimeString(familyConfig.bedTime)) {
+        payment += familyConfig.hourlyRateBeforeBedTime;
+      } else if (
+        familyConfig.specialRate &&
+        hour >=
+          this.getHoursFromTimeString(familyConfig.specialRate.startTime) &&
+        hour < this.getHoursFromTimeString(familyConfig.specialRate.endTime)
+      ) {
+        payment += familyConfig.specialRate.rate;
+      } else if (hour >= this.getHoursFromTimeString(familyConfig.bedTime)) {
+        payment += familyConfig.hourlyRateAfterBedTime;
+      }
+    });
     return payment;
   }
 
