@@ -43,3 +43,4 @@ The job:
 Deliverable:
 - Calculate total pay, based on babysitter start and end time, and a family.
 
+The Kata does not require a User Interface of any kind—just the library code and the tests that show how you used TDD to develop that code.
