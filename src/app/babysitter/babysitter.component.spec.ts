@@ -94,6 +94,7 @@ describe('BabysitterComponent', () => {
       },
     };
     expect(component.calculatePayment('5PM', '10PM', 'Family B')).toEqual(60);
+    expect(component.calculatePayment('10PM', '12AM', 'Family B')).toEqual(16);
     expect(component.calculatePayment('10PM', '4AM', 'Family B')).toEqual(80);
     expect(component.calculatePayment('12AM', '4AM', 'Family B')).toEqual(64);
   });
@@ -130,32 +131,5 @@ describe('BabysitterComponent', () => {
 
     time = '4AM';
     expect(component.getHoursFromTimeString(time)).toEqual(16);
-  });
-
-  it('should get the payment value based on start and end time', () => {
-    let rate = 0;
-    let startTime = '';
-    let endTime = '';
-
-    rate = 15;
-    startTime = '5PM';
-    endTime = '11PM';
-    expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
-      90
-    );
-
-    rate = 20;
-    startTime = '11PM';
-    endTime = '4AM';
-    expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
-      100
-    );
-
-    rate = 8;
-    startTime = '10PM';
-    endTime = '12AM';
-    expect(component.getPaymentBetweenTimes(startTime, endTime, rate)).toEqual(
-      16
-    );
   });
 });

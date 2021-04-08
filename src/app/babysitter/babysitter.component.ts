@@ -76,14 +76,6 @@ export class BabysitterComponent implements OnInit {
     return this.FAMILY_CONFIG.filter((family) => family.name === familyName)[0];
   }
 
-  getPaymentBetweenTimes(
-    startTime: string,
-    endTime: string,
-    rate: number
-  ): number {
-    return this.getDifferenceBetweenTimes(startTime, endTime) * rate;
-  }
-
   getDifferenceBetweenTimes(startTime: string, endTime: string): number {
     return (
       this.getHoursFromTimeString(endTime) -
