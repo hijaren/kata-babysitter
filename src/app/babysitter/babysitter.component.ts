@@ -38,9 +38,7 @@ export class BabysitterComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.calculatePayment('12AM', '4AM', 'Family B');
-  }
+  ngOnInit(): void {}
 
   calculatePayment(
     startTime: string,
@@ -49,26 +47,29 @@ export class BabysitterComponent implements OnInit {
   ): number {
     const familyConfig = this.getFamilyConfigByName(familyName);
     let payment = 0;
-    if (familyConfig.specialRate) {
-      const paymentBeforeBedTime = this.getPaymentBetweenTimes(
-        startTime,
-        familyConfig.bedTime,
-        familyConfig.hourlyRateBeforeBedTime
-      );
-      const specialRatePayment = this.getPaymentBetweenTimes(
-        familyConfig.specialRate.startTime,
-        familyConfig.specialRate.endTime,
-        familyConfig.specialRate.rate
-      );
-      const paymentAfterBedTime = this.getPaymentBetweenTimes(
-        familyConfig.specialRate.endTime,
-        endTime,
-        familyConfig.hourlyRateAfterBedTime
-      );
-      console.log('before', paymentBeforeBedTime);
-      console.log('special', specialRatePayment);
-      console.log('after', paymentAfterBedTime);
-      payment = paymentBeforeBedTime + specialRatePayment + paymentAfterBedTime;
+    if (familyConfig.hasOwnProperty('specialRate')) {
+      const hoursWorked: Array<number> = [];
+      for (
+        let i = 0;
+        i < this.getDifferenceBetweenTimes(startTime, endTime);
+        i++
+      ) {
+        hoursWorked.push(this.getHoursFromTimeString(startTime) + i);
+      }
+      hoursWorked.forEach((hour) => {
+        if (hour < this.getHoursFromTimeString(familyConfig.bedTime)) {
+          payment += familyConfig.hourlyRateBeforeBedTime;
+        } else if (
+          familyConfig.specialRate &&
+          hour >=
+            this.getHoursFromTimeString(familyConfig.specialRate.startTime) &&
+          hour < this.getHoursFromTimeString(familyConfig.specialRate.endTime)
+        ) {
+          payment += familyConfig.specialRate.rate;
+        } else if (hour > this.getHoursFromTimeString(familyConfig.bedTime)) {
+          payment += familyConfig.hourlyRateAfterBedTime;
+        }
+      });
     } else {
       const paymentBeforeBedTime = this.getPaymentBetweenTimes(
         startTime,
@@ -82,6 +83,7 @@ export class BabysitterComponent implements OnInit {
       );
       payment = paymentBeforeBedTime + paymentAfterBedTime;
     }
+    console.log('payment', payment);
     return payment;
   }
 

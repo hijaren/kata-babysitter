@@ -93,8 +93,8 @@ describe('BabysitterComponent', () => {
         rate: 8,
       },
     };
-    // expect(component.calculatePayment('5PM', '10PM', 'Family B')).toEqual(60);
-    // expect(component.calculatePayment('10PM', '4AM', 'Family B')).toEqual(75);
+    expect(component.calculatePayment('5PM', '10PM', 'Family B')).toEqual(60);
+    expect(component.calculatePayment('10PM', '4AM', 'Family B')).toEqual(80);
     expect(component.calculatePayment('12AM', '4AM', 'Family B')).toEqual(64);
   });
 
