@@ -53,9 +53,22 @@ export class BabysitterComponent implements OnInit {
 
   FAMILY_OPTIONS = ['Family A', 'Family B', 'Family C'];
 
+  selectedStartTime = '';
+  selectedEndTime = '';
+  selectedFamily = '';
+  paymentValue = 0;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  setPaymentValue(): void {
+    this.paymentValue = this.calculatePayment(
+      this.selectedStartTime,
+      this.selectedEndTime,
+      this.selectedFamily
+    );
+  }
 
   calculatePayment(
     startTime: string,

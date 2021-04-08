@@ -1,1 +1,12 @@
-<p>babysitter works!</p>
+<h1>Babysitter Payment Calculator</h1>
+<select name='startingTime' id='startingTime' [(ngModel)]='selectedStartTime'>
+    <option *ngFor='let time of TIMES_OPTIONS' [value]='time'>{{time}}</option>
+</select>
+<select name="endingTime" id="endingTime" [(ngModel)]='selectedEndTime'>
+    <option *ngFor='let time of TIMES_OPTIONS' [value]='time'>{{time}}</option>
+</select>
+<select name="family" id="family" [(ngModel)]='selectedFamily'>
+    <option *ngFor='let family of FAMILY_OPTIONS' [value]="family">{{family}}</option>
+</select>
+<button (click)="setPaymentValue()">Calculate Payment</button>
+<span>Payment: {{ paymentValue }}</span>
