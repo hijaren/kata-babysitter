@@ -11,9 +11,10 @@ This is a Kata to demonstrate my understanding of clean code & software craftsma
 To run application locally:
 1. Install NPM package manager (https://www.npmjs.com/get-npm)
 2. Run `npm install -g @angular/cli` to install Angular CLI
-3. Clone repository
-4. Run `npm install` to install dependencies
-5. Run `ng serve --open` to run & open development server
+3. Clone repository / download zipped file
+4. Open with IDE (ex: VS Code)
+5. Run `npm install` to install dependencies
+6. Run `ng serve --open` to run & open development server
 
 Other commands:
 - Run `ng test` to execute unit tests
