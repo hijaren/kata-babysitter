@@ -1,10 +1,10 @@
 # KataBabysitter
 
-This is a Kata to demonstrate understanding of clean code & software craftsmanship. Created using Angular w/ Typescript.
+This is a Kata to demonstrate my understanding of clean code & software craftsmanship. Created using Angular w/ Typescript.
 
 ## Setup
 
-1. Install NPM package manager
+1. Install NPM package manager (https://www.npmjs.com/get-npm)
 2. Clone repository
 3. Run `npm install` to install dependencies
 4. Run `npm serve` to run development server
