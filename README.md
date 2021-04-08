@@ -2,6 +2,10 @@
 
 This is a Kata to demonstrate my understanding of clean code & software craftsmanship. Created using Angular w/ Typescript.
 
+## Screenshots
+https://github.com/hijaren/kata-babysitter/blob/master/basic%20ui.png
+https://github.com/hijaren/kata-babysitter/blob/master/code%20coverage.png
+
 ## Setup
 
 1. Install NPM package manager (https://www.npmjs.com/get-npm)
