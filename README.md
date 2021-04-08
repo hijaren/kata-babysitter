@@ -3,8 +3,8 @@
 This is a Kata to demonstrate my understanding of clean code & software craftsmanship. Created using Angular w/ Typescript.
 
 ## Screenshots
-https://github.com/hijaren/kata-babysitter/blob/master/basic%20ui.png
-https://github.com/hijaren/kata-babysitter/blob/master/code%20coverage.png
+- UI: https://github.com/hijaren/kata-babysitter/blob/master/basic%20ui.png
+- Code Coverage: https://github.com/hijaren/kata-babysitter/blob/master/code%20coverage.png
 
 ## Setup
 
